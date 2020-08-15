@@ -8,3 +8,7 @@ Path planner for drones based on Rapidly exploring random tree
   - https://www.autonomousrobotslab.com/subtplanning.html
   - https://github.com/unr-arl/gbplanner_ros
   - https://github.com/unr-arl/gbplanner_ros
+  
+ This one will also give some initial idea.
+
+  - https://github.com/HKUST-Aerial-Robotics/Fast-Planner
