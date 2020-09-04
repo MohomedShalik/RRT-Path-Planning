@@ -1,0 +1,3 @@
+<launch>
+    <node name="rviz_visualisation" pkg="rviz" type="rviz" output="log" args="-d $(find px4_mavros_launcher)/rviz/rviz.rviz" />
+</launch>
