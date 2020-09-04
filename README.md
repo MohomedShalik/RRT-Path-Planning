@@ -27,12 +27,12 @@ You will need to install the following:
    You will need to install mavros to catkin_ws as shown in the mavros official repo for mavros from source
    or you install it from apt package manager.
 
-##Initial Setup
+## Initial Setup
     
     1) go to the src/px4_mavros_launcher/Models folder
     2) copy the iris_realsense_camera folder to your Firmware/Tools/sitl_gazebo/models folder
     
-##How to Build the Repo (Fresh Start)
+## How to Build the Repo (Fresh Start)
 
     1) Git clone https://github.com/gfav730/hcl_ws
     2) Cd hcl_ws
@@ -40,7 +40,7 @@ You will need to install the following:
     4) Catkin_make
     5) source devel/setup.bash
     
-##Launching Files For PX4 Firmware and MAVROS starter
+## Launching Files For PX4 Firmware and MAVROS starter
 These launch files need to be executed 
 
     1) . ./px4.sh
