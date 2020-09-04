@@ -1,0 +1,34 @@
+<launch>
+
+    <!-- For sim -->
+    <arg name="use_gazebo" default="true"/>
+
+    <!-- MAVROS configs -->
+    <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
+
+    <!-- ROS static transformation -->
+    <node pkg="tf" type="static_transform_publisher" name="world_map_linker" args="0 0 0 0 0 0 world map 100" />
+    <node pkg="tf" type="static_transform_publisher" name="tf_pc2" args="0.1 0 0.0 -1.57 0 -1.57 base_link color 500"/>
+    <node pkg="tf" type="static_transform_publisher" name="tf_camera" args="0 0 0.0 1.57 -1.57 0 color camera_link 500"/>
+
+    <!-- MAVROS + PX4 + Gazebo -->
+    <include file="$(find px4_mavros_launcher)/launch/mavros.launch" >
+        <arg name="use_gazebo" value="$(arg use_gazebo)"/>
+        <arg name="fcu_url" value="$(arg fcu_url)"/>
+    </include>
+
+    <!-- Including the pointcloud generation-->
+    <include file="$(find realsense_gazebo_plugin)/launch/depth_proc.launch"/>
+
+    <!-- This node publishes tf from parent_frame to child_frame-->
+    <node pkg="px4_mavros_launcher" name="camera_pose_publisher" type="camera_pose_publisher.py" output="screen">
+        <param name="parent_frame" value="world" />
+        <param name="child_frame" value="camera_link" />
+        <param name="pose_topic" value="camera/pose" />
+    </node>
+
+
+    <!-- Rviz -->
+    <include file="$(find px4_mavros_launcher)/launch/rviz.launch" />
+
+</launch>
