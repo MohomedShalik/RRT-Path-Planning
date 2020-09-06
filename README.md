@@ -34,8 +34,8 @@ You will need to install the following:
     
 ## How to Build the Repo (Fresh Start)
 
-    1) Git clone https://github.com/gfav730/hcl_ws
-    2) Cd hcl_ws
+    1) Git clone 
+    2) Cd RRT-Path-Planning
     3) Catkin clean
     4) Catkin_make
     5) source devel/setup.bash
